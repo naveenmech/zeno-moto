@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Briefcase, Mail, MessageCircle } from "lucide-react";
+import { cn } from "@/lib/cn";
 
 const PROFILE = {
   name: "Naveenkumar A",
@@ -12,16 +14,51 @@ const PROFILE = {
 const WHATSAPP_LINK = `https://wa.me/${PROFILE.whatsapp.replace(/[^0-9]/g, "")}`;
 
 export function ProfileMenu() {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onPointerDown(e: PointerEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
-    <div className="group relative">
-      <div
-        className="flex h-8 w-8 cursor-default items-center justify-center rounded-full bg-electric-soft text-xs font-semibold text-electric"
+    <div
+      ref={containerRef}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-electric-soft text-xs font-semibold text-electric"
         title={PROFILE.name}
+        aria-haspopup="true"
+        aria-expanded={open}
       >
         NV
-      </div>
+      </button>
 
-      <div className="pointer-events-none absolute right-0 top-full z-30 mt-2 w-72 origin-top-right scale-95 rounded-xl border border-border bg-surface opacity-0 shadow-xl transition duration-150 ease-out group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100">
+      <div
+        className={cn(
+          "absolute right-0 top-full z-30 mt-2 w-72 origin-top-right rounded-xl border border-border bg-surface shadow-xl transition duration-150 ease-out",
+          open ? "pointer-events-auto scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
+        )}
+      >
         <div className="flex items-center gap-3 border-b border-border px-4 py-3.5">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-electric-soft text-sm font-semibold text-electric">
             NV

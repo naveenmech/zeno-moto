@@ -34,7 +34,7 @@ export default function StationDetailPage({ params }: { params: Promise<{ id: st
       </Link>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
+        <div className="min-w-0">
           <div className="flex items-center gap-2.5">
             <h2 className="text-lg font-semibold">{station.name}</h2>
             <StatusBadge status={station.status} />

@@ -66,13 +66,13 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
   return (
     <Card className="p-4 md:p-6">
       <div className="mb-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <div>
+        <div className="min-w-0">
           <p className="text-sm font-semibold">Swap kiosk simulator</p>
-          <p className="text-xs text-muted-foreground">
+          <p className="truncate text-xs text-muted-foreground">
             {station ? `${station.name} · ${station.city}` : "Select a station to begin"}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex shrink-0 gap-2">
           <button
             onClick={start}
             disabled={running}

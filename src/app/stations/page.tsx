@@ -36,14 +36,14 @@ export default function StationsPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name or city..."
-            className="w-full rounded-lg border border-border bg-surface py-2 pl-9 pr-3 text-sm outline-none focus:border-accent"
+            className="w-full rounded-lg border border-border bg-surface py-2 pl-9 pr-3 text-base outline-none focus:border-accent sm:text-sm"
           />
         </div>
         <div className="flex flex-wrap gap-2">
           <select
             value={region}
             onChange={(e) => setRegion(e.target.value)}
-            className="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
+            className="rounded-lg border border-border bg-surface px-3 py-2 text-base outline-none focus:border-accent sm:text-sm"
           >
             {regions.map((r) => (
               <option key={r} value={r}>

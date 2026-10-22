@@ -24,13 +24,13 @@ export default function SwapMonitorPage() {
   return (
     <div className="space-y-5">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-muted-foreground">
+        <p className="min-w-0 text-sm text-muted-foreground">
           Simulate the full tap-to-dispense swap flow and watch it land in the live network feed.
         </p>
         <select
           value={selected?.id ?? ""}
           onChange={(e) => setStationId(e.target.value)}
-          className="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
+          className="w-full min-w-0 max-w-full rounded-lg border border-border bg-surface px-3 py-2 text-base outline-none focus:border-accent sm:w-auto sm:shrink-0 sm:text-sm"
         >
           {(stations ?? []).slice(0, 40).map((s) => (
             <option key={s.id} value={s.id}>
