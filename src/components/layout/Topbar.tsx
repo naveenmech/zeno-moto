@@ -8,6 +8,7 @@ import { useAppDispatch } from "@/store/hooks";
 import { toggleMobileNav } from "@/store/uiSlice";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { ProfileMenu } from "./ProfileMenu";
+import { DownloadCsvButton } from "./DownloadCsvButton";
 
 let clockValue = Date.now();
 
@@ -71,6 +72,7 @@ export function Topbar() {
             ? now.toLocaleTimeString(undefined, { hour12: false })
             : "--:--:--"}
         </div>
+        <DownloadCsvButton />
         <ThemeToggle />
         <button
           type="button"
