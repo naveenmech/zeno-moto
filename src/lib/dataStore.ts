@@ -199,6 +199,13 @@ function tick() {
   // roll the hourly history forward occasionally
   const last = store.swapHistory[store.swapHistory.length - 1];
   last.swaps = Math.max(0, last.swaps + randInt(-15, 25));
+
+  // simulate a new day's rollover once "today" totals would spill past 7 digits
+  if (store.totals.walletVolumeToday > 9_000_000) {
+    store.totals.walletVolumeToday = randInt(350_000, 700_000);
+    store.totals.swapsToday = randInt(3_000, 6_000);
+    store.totals.energyDispensedKwh = randInt(120_000, 200_000);
+  }
 }
 
 function ensureTicking() {

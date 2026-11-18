@@ -97,7 +97,7 @@ export function DownloadCsvButton() {
     <button
       type="button"
       onClick={handleDownload}
-      className="hidden items-center gap-1.5 rounded-lg border border-border px-2.5 py-2 text-xs font-medium text-muted-foreground hover:bg-surface-muted sm:flex"
+      className="hidden items-center gap-1.5 rounded-full border border-border px-3 py-2 text-xs font-semibold text-muted-foreground hover:bg-surface-muted sm:flex"
       title={`Download ${exportInfo.label} CSV`}
     >
       <Download size={15} />

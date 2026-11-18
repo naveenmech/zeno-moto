@@ -12,7 +12,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-screen">
       <aside className="hidden w-56 shrink-0 border-r border-border bg-surface md:block">
         <div className="sticky top-0 h-screen">
           <SidebarContent />
@@ -34,12 +34,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-              className="fixed inset-y-0 left-0 z-40 w-72 bg-surface shadow-xl md:hidden"
+              className="fixed inset-y-0 left-0 z-40 w-72 rounded-r-3xl bg-surface shadow-xl md:hidden"
             >
               <button
                 type="button"
                 onClick={() => dispatch(closeMobileNav())}
-                className="absolute right-3 top-4 rounded-lg p-1.5 text-muted-foreground hover:bg-surface-muted"
+                className="absolute right-3 top-4 rounded-full p-1.5 text-muted-foreground hover:bg-surface-muted"
                 aria-label="Close navigation"
               >
                 <X size={18} />

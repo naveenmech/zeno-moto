@@ -19,16 +19,16 @@ export default function WalletPage() {
     <div className="space-y-5">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Settled volume</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">KES {volume.toLocaleString()}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Settled volume</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">KES {volume.toLocaleString()}</p>
         </Card>
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Transactions</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">{transactions?.length ?? 0}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Transactions</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">{transactions?.length ?? 0}</p>
         </Card>
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Success rate</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">{successRate}%</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Success rate</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">{successRate}%</p>
         </Card>
       </div>
 

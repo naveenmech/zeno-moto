@@ -20,7 +20,7 @@ export function LiveSwapFeed({ swaps, maxHeight }: { swaps: SwapTransaction[]; m
       style={maxHeight ? { height: maxHeight } : undefined}
     >
       <div className="mb-2.5 flex items-center justify-between">
-        <p className="text-sm font-semibold">Live swap feed</p>
+        <p className="text-sm font-bold">Live swap feed</p>
         <span className="flex items-center gap-1.5 text-xs text-accent-strong">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
           Live
@@ -36,7 +36,7 @@ export function LiveSwapFeed({ swaps, maxHeight }: { swaps: SwapTransaction[]; m
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="flex items-center justify-between gap-3 rounded-lg border border-border px-2.5 py-1.5"
+              className="flex items-center justify-between gap-3 rounded-xl border border-border px-2.5 py-1.5"
             >
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium">{swap.riderName}</p>

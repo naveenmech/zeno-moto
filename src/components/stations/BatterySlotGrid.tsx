@@ -15,7 +15,7 @@ const FILL_COLOR: Record<BatterySlot["status"], string> = {
 
 function SlotGlyph({ slot }: { slot: BatterySlot }) {
   return (
-    <div className="flex h-16 w-9 flex-col items-center justify-end rounded-md border-2 border-border bg-surface-muted p-0.5">
+    <div className="flex h-16 w-9 flex-col items-center justify-end rounded-lg border-2 border-border bg-surface-muted p-0.5">
       <div className="h-full w-full overflow-hidden rounded-sm bg-surface-muted">
         <motion.div
           initial={false}

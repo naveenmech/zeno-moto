@@ -8,7 +8,7 @@ export function SwapVolumeChart({ data }: { data: { time: string; swaps: number 
     <Card className="p-4 md:p-5">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold">Swap volume — last 24h</p>
+          <p className="text-sm font-bold">Swap volume — last 24h</p>
           <p className="text-xs text-muted-foreground">Network-wide completed swaps per hour</p>
         </div>
       </div>

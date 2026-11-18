@@ -17,16 +17,16 @@ export default function FleetPage() {
     <div className="space-y-5">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Fleet partners</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">{fleet?.length ?? 0}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Fleet partners</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">{fleet?.length ?? 0}</p>
         </Card>
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Total vehicles</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">{totals.vehicles.toLocaleString()}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Total vehicles</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">{totals.vehicles.toLocaleString()}</p>
         </Card>
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Active riders</p>
-          <p className="mt-2 font-mono text-2xl font-semibold tabular-nums">{totals.riders.toLocaleString()}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Active riders</p>
+          <p className="mt-2 font-mono text-2xl font-bold tabular-nums">{totals.riders.toLocaleString()}</p>
         </Card>
       </div>
 
@@ -47,10 +47,10 @@ export default function FleetPage() {
               <tr key={partner.id} className="border-b border-border last:border-0">
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2.5">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-electric-soft text-electric">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-electric-soft text-electric">
                       <Users2 size={15} />
                     </span>
-                    <span className="font-medium">{partner.name}</span>
+                    <span className="font-semibold">{partner.name}</span>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-muted-foreground">{partner.region}</td>

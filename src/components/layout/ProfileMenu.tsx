@@ -45,7 +45,7 @@ export function ProfileMenu() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-electric-soft text-xs font-semibold text-electric"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-electric to-accent text-xs font-bold text-background"
         title={PROFILE.name}
         aria-haspopup="true"
         aria-expanded={open}
@@ -55,12 +55,12 @@ export function ProfileMenu() {
 
       <div
         className={cn(
-          "absolute right-0 top-full z-30 mt-2 w-72 origin-top-right rounded-xl border border-border bg-surface shadow-xl transition duration-150 ease-out",
+          "absolute right-0 top-full z-30 mt-2 w-72 origin-top-right rounded-2xl border border-border bg-surface shadow-xl transition duration-150 ease-out",
           open ? "pointer-events-auto scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         )}
       >
         <div className="flex items-center gap-3 border-b border-border px-4 py-3.5">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-electric-soft text-sm font-semibold text-electric">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-electric to-accent text-sm font-bold text-background">
             NV
           </div>
           <div className="min-w-0">

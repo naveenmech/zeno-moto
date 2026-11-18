@@ -28,7 +28,7 @@ export function NetworkMap({ stations }: { stations: StationSummary[] }) {
     <Card className="p-4 md:p-5">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold">Live network map — Kenya</p>
+          <p className="text-sm font-bold">Live network map — Kenya</p>
           <p className="text-xs text-muted-foreground">{stations.length} swap stations across 6 regions</p>
         </div>
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -39,7 +39,7 @@ export function NetworkMap({ stations }: { stations: StationSummary[] }) {
       </div>
 
       <div
-        className="relative h-72 w-full overflow-hidden rounded-xl border border-border md:h-80"
+        className="relative h-72 w-full overflow-hidden rounded-2xl border border-border md:h-80"
         style={{
           backgroundImage: "radial-gradient(var(--color-border) 1px, transparent 1px)",
           backgroundSize: "18px 18px",

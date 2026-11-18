@@ -30,7 +30,7 @@ export default function SwapMonitorPage() {
         <select
           value={selected?.id ?? ""}
           onChange={(e) => setStationId(e.target.value)}
-          className="w-full min-w-0 max-w-full rounded-lg border border-border bg-surface px-3 py-2 text-base outline-none focus:border-accent sm:w-auto sm:shrink-0 sm:text-sm"
+          className="w-full min-w-0 max-w-full rounded-full border border-border bg-surface px-3.5 py-2 text-base outline-none focus:border-accent sm:w-auto sm:shrink-0 sm:text-sm"
         >
           {(stations ?? []).slice(0, 40).map((s) => (
             <option key={s.id} value={s.id}>
@@ -43,7 +43,7 @@ export default function SwapMonitorPage() {
       <SwapVisualizer station={selected} />
 
       <div>
-        <p className="mb-3 text-sm font-semibold">Network swap activity</p>
+        <p className="mb-3 text-sm font-bold">Network swap activity</p>
         <Card className="overflow-x-auto">
           <table className="w-full min-w-[640px] text-sm">
             <thead>

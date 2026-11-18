@@ -67,7 +67,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
     <Card className="p-4 md:p-6">
       <div className="mb-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
-          <p className="text-sm font-semibold">Swap kiosk simulator</p>
+          <p className="text-sm font-bold">Swap kiosk simulator</p>
           <p className="truncate text-xs text-muted-foreground">
             {station ? `${station.name} · ${station.city}` : "Select a station to begin"}
           </p>
@@ -76,7 +76,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
           <button
             onClick={start}
             disabled={running}
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             <KeyRound size={15} />
             {running ? "Swap in progress…" : "Tap key to start swap"}
@@ -84,7 +84,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
           {(running || log.length > 0) && (
             <button
               onClick={reset}
-              className="rounded-lg border border-border px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-surface-muted"
+              className="rounded-full border border-border px-3 py-2.5 text-sm font-semibold text-muted-foreground hover:bg-surface-muted"
             >
               Reset
             </button>
@@ -97,7 +97,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
         {STEPS.map((step, i) => {
           const stepIndex = STEPS.indexOf(activeStep);
           const stateClass =
-            i < stepIndex ? "bg-accent text-white border-accent" : i === stepIndex ? "border-accent text-accent-strong" : "border-border text-muted-foreground";
+            i < stepIndex ? "bg-accent text-background border-accent" : i === stepIndex ? "border-accent text-accent-strong" : "border-border text-muted-foreground";
           return (
             <div key={step} className="flex flex-1 items-center last:flex-none">
               <div className={cn("flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-[11px] font-semibold", stateClass)}>
@@ -113,15 +113,15 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr]">
         {/* kiosk visual */}
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-[200px] rounded-2xl border-4 border-slate-700/70 bg-slate-900 p-3 shadow-xl">
-            <div className="mb-3 rounded-md bg-slate-950 px-2 py-2 text-center">
+          <div className="w-full max-w-[200px] rounded-[1.5rem] border-4 border-zinc-700/70 bg-zinc-900 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_20px_40px_-20px_rgba(0,0,0,0.6)]">
+            <div className="mb-3 rounded-lg bg-black px-2 py-2 text-center">
               <p className="font-mono text-[11px] leading-tight text-accent-strong">
                 {current?.title ?? "Tap your key to begin"}
               </p>
             </div>
-            <div className="relative mx-auto h-36 w-20 overflow-hidden rounded-lg border-2 border-slate-600 bg-slate-800">
+            <div className="relative mx-auto h-36 w-20 overflow-hidden rounded-lg border-2 border-zinc-600 bg-zinc-800">
               <motion.div
-                className="absolute inset-x-0 top-0 z-10 h-full bg-gradient-to-b from-slate-500 to-slate-700"
+                className="absolute inset-x-0 top-0 z-10 h-full bg-gradient-to-b from-zinc-500 to-zinc-700"
                 animate={{ y: doorOpen ? "-100%" : "0%" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               />
@@ -159,7 +159,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
                 </AnimatePresence>
               </div>
             </div>
-            <p className="mt-2 text-center text-[11px] text-slate-400">{current?.detail ?? "Awaiting rider"}</p>
+            <p className="mt-2 text-center text-[11px] text-zinc-400">{current?.detail ?? "Awaiting rider"}</p>
           </div>
 
           <div className="mt-4 grid w-full grid-cols-1 gap-2 text-xs">
@@ -180,7 +180,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
                   key={`${entry.phase}-${i}`}
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="flex items-start gap-3 rounded-lg border border-border px-3 py-2"
+                  className="flex items-start gap-3 rounded-xl border border-border px-3 py-2"
                 >
                   <span className="mt-0.5 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold uppercase text-accent-strong">
                     {entry.step}
@@ -201,7 +201,7 @@ export function SwapVisualizer({ station }: { station: StationSummary | null }) 
 
 function IdRow({ label, value, active }: { label: string; value: string; active: boolean }) {
   return (
-    <div className={cn("flex items-center justify-between rounded-lg border px-3 py-2", active ? "border-accent/40 bg-accent-soft" : "border-border bg-surface-muted")}>
+    <div className={cn("flex items-center justify-between rounded-xl border px-3 py-2", active ? "border-accent/40 bg-accent-soft" : "border-border bg-surface-muted")}>
       <span className="text-muted-foreground">{label}</span>
       <span className={cn("font-mono tabular-nums", active ? "text-accent-strong" : "text-muted-foreground")}>{active ? value : "—"}</span>
     </div>

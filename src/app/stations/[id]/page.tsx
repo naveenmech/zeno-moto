@@ -36,7 +36,7 @@ export default function StationDetailPage({ params }: { params: Promise<{ id: st
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex items-center gap-2.5">
-            <h2 className="text-lg font-semibold">{station.name}</h2>
+            <h2 className="text-lg font-extrabold">{station.name}</h2>
             <StatusBadge status={station.status} />
           </div>
           <p className="text-sm text-muted-foreground">
@@ -46,7 +46,7 @@ export default function StationDetailPage({ params }: { params: Promise<{ id: st
         <button
           onClick={handleSimulate}
           disabled={simulating}
-          className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-60"
         >
           <Zap size={15} />
           {simulating ? "Simulating…" : "Simulate swap here"}
@@ -79,12 +79,12 @@ export default function StationDetailPage({ params }: { params: Promise<{ id: st
       </div>
 
       <div>
-        <p className="mb-3 text-sm font-semibold">Battery slots</p>
+        <p className="mb-3 text-sm font-bold">Battery slots</p>
         <BatterySlotGrid slots={station.slots} />
       </div>
 
       <div>
-        <p className="mb-3 text-sm font-semibold">Recent swaps at this station</p>
+        <p className="mb-3 text-sm font-bold">Recent swaps at this station</p>
         <Card className="divide-y divide-border">
           {stationSwaps.length === 0 && <p className="p-4 text-sm text-muted-foreground">No recent swaps recorded.</p>}
           {stationSwaps.map((swap) => (

@@ -36,14 +36,14 @@ export default function StationsPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name or city..."
-            className="w-full rounded-lg border border-border bg-surface py-2 pl-9 pr-3 text-base outline-none focus:border-accent sm:text-sm"
+            className="w-full rounded-full border border-border bg-surface py-2 pl-9 pr-3 text-base outline-none focus:border-accent sm:text-sm"
           />
         </div>
         <div className="flex flex-wrap gap-2">
           <select
             value={region}
             onChange={(e) => setRegion(e.target.value)}
-            className="rounded-lg border border-border bg-surface px-3 py-2 text-base outline-none focus:border-accent sm:text-sm"
+            className="rounded-full border border-border bg-surface px-3 py-2 text-base outline-none focus:border-accent sm:text-sm"
           >
             {regions.map((r) => (
               <option key={r} value={r}>
@@ -51,13 +51,13 @@ export default function StationsPage() {
               </option>
             ))}
           </select>
-          <div className="flex overflow-hidden rounded-lg border border-border">
+          <div className="flex overflow-hidden rounded-full border border-border">
             {STATUS_FILTERS.map((s) => (
               <button
                 key={s}
                 onClick={() => setStatus(s)}
-                className={`px-3 py-2 text-xs font-medium capitalize transition-colors ${
-                  status === s ? "bg-accent text-white" : "bg-surface text-muted-foreground hover:bg-surface-muted"
+                className={`px-3.5 py-2 text-xs font-semibold capitalize transition-colors ${
+                  status === s ? "bg-accent text-background" : "bg-surface text-muted-foreground hover:bg-surface-muted"
                 }`}
               >
                 {s}

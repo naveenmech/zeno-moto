@@ -39,24 +39,25 @@ export function Topbar() {
   );
 
   return (
-    <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-border bg-surface/90 px-4 py-3.5 backdrop-blur md:px-6">
+    <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-border bg-surface/80 px-4 py-3.5 backdrop-blur-md md:px-6">
       <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={() => dispatch(toggleMobileNav())}
-          className="rounded-lg border border-border p-2 text-muted-foreground hover:bg-surface-muted md:hidden"
+          className="rounded-full border border-border p-2 text-muted-foreground hover:bg-surface-muted md:hidden"
           aria-label="Open navigation"
         >
           <Menu size={18} />
         </button>
         <div>
-          <h1 className="text-base font-semibold tracking-tight md:text-lg">
+          <h1 className="text-base font-extrabold tracking-tight md:text-lg">
             {active?.label ?? "Overview"}
           </h1>
           <p className="hidden text-xs text-muted-foreground sm:block">
             Nairobi HQ &middot;{" "}
             {now
               ? now.toLocaleDateString(undefined, {
+                  timeZone: "Africa/Nairobi",
                   weekday: "long",
                   month: "short",
                   day: "numeric",
@@ -66,17 +67,19 @@ export function Topbar() {
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
-        <div className="hidden rounded-lg border border-border bg-surface-muted px-3 py-1.5 font-mono text-sm tabular-nums text-foreground sm:block">
+      <div className="flex items-center gap-2">
+        <div className="hidden items-center gap-1.5 rounded-full border border-border bg-surface-muted px-3.5 py-1.5 font-mono text-sm tabular-nums text-foreground sm:flex">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {now
-            ? now.toLocaleTimeString(undefined, { hour12: false })
+            ? now.toLocaleTimeString(undefined, { timeZone: "Africa/Nairobi", hour12: false })
             : "--:--:--"}
+          <span className="text-[10px] font-semibold text-muted-foreground">EAT</span>
         </div>
         <DownloadCsvButton />
         <ThemeToggle />
         <button
           type="button"
-          className="relative rounded-lg border border-border p-2 text-muted-foreground hover:bg-surface-muted"
+          className="relative rounded-full border border-border p-2 text-muted-foreground hover:bg-surface-muted"
           aria-label="Notifications"
         >
           <Bell size={17} />

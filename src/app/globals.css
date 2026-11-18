@@ -2,62 +2,63 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f4f6f8;
+  --background: #f6f6fb;
   --surface: #ffffff;
-  --surface-muted: #eef1f5;
-  --foreground: #10151b;
-  --muted-foreground: #5b6675;
-  --border: #e2e6eb;
-  --accent: #0e9f6e;
-  --accent-soft: #d8f3e6;
-  --accent-strong: #0a7a54;
-  --electric: #2563eb;
-  --electric-soft: #dbe6fe;
-  --warning: #d97706;
-  --warning-soft: #fef0d9;
+  --surface-muted: #efeef7;
+  --foreground: #15131f;
+  --muted-foreground: #68647c;
+  --border: #e3e0f0;
+  --accent: #5d8a00;
+  --accent-soft: #e6f4c7;
+  --accent-strong: #456600;
+  --electric: #6d4aff;
+  --electric-soft: #ece6ff;
+  --warning: #b45309;
+  --warning-soft: #fdecd3;
   --danger: #dc2626;
   --danger-soft: #fde2e1;
-  --card-shadow: 0 1px 2px rgba(16, 21, 27, 0.04), 0 8px 24px -12px rgba(16, 21, 27, 0.12);
+  --card-shadow: 0 1px 2px rgba(21, 19, 31, 0.04), 0 10px 28px -14px rgba(21, 19, 31, 0.14);
+  --radius-card: 1.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --background: #0b0f14;
-    --surface: #121820;
-    --surface-muted: #19212b;
-    --foreground: #eef2f6;
-    --muted-foreground: #8d99a8;
-    --border: #232c37;
-    --accent: #22c58b;
-    --accent-soft: #0f2a21;
-    --accent-strong: #3ee0a4;
-    --electric: #5b8cff;
-    --electric-soft: #16233f;
-    --warning: #f0a93c;
-    --warning-soft: #3a2a0f;
-    --danger: #f2615a;
-    --danger-soft: #3a1414;
-    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px -14px rgba(0, 0, 0, 0.6);
+    --background: #0c0b11;
+    --surface: #15141b;
+    --surface-muted: #1c1b24;
+    --foreground: #f3f2f9;
+    --muted-foreground: #948fa8;
+    --border: #28262f;
+    --accent: #9ae632;
+    --accent-soft: #1f2a0d;
+    --accent-strong: #c2f565;
+    --electric: #8b7bff;
+    --electric-soft: #211c3d;
+    --warning: #f5a623;
+    --warning-soft: #392a0e;
+    --danger: #ff6368;
+    --danger-soft: #3a1416;
+    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 16px 32px -16px rgba(0, 0, 0, 0.65);
   }
 }
 
 :root.dark {
-  --background: #0b0f14;
-  --surface: #121820;
-  --surface-muted: #19212b;
-  --foreground: #eef2f6;
-  --muted-foreground: #8d99a8;
-  --border: #232c37;
-  --accent: #22c58b;
-  --accent-soft: #0f2a21;
-  --accent-strong: #3ee0a4;
-  --electric: #5b8cff;
-  --electric-soft: #16233f;
-  --warning: #f0a93c;
-  --warning-soft: #3a2a0f;
-  --danger: #f2615a;
-  --danger-soft: #3a1414;
-  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px -14px rgba(0, 0, 0, 0.6);
+  --background: #0c0b11;
+  --surface: #15141b;
+  --surface-muted: #1c1b24;
+  --foreground: #f3f2f9;
+  --muted-foreground: #948fa8;
+  --border: #28262f;
+  --accent: #9ae632;
+  --accent-soft: #1f2a0d;
+  --accent-strong: #c2f565;
+  --electric: #8b7bff;
+  --electric-soft: #211c3d;
+  --warning: #f5a623;
+  --warning-soft: #392a0e;
+  --danger: #ff6368;
+  --danger-soft: #3a1416;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 16px 32px -16px rgba(0, 0, 0, 0.65);
 }
 
 @theme inline {
@@ -78,12 +79,18 @@
   --color-danger-soft: var(--danger-soft);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-mono-geist);
+  --radius-card: var(--radius-card);
 
   --animate-pulse-ring: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   @keyframes pulse-ring {
     0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); }
     70% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 0%, transparent); }
     100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  }
+  --animate-float: float 6s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
   }
 }
 
@@ -98,6 +105,10 @@ html {
 
 body {
   background: var(--background);
+  background-image:
+    radial-gradient(900px circle at 0% -10%, color-mix(in srgb, var(--electric) 10%, transparent), transparent 60%),
+    radial-gradient(700px circle at 100% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 55%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }

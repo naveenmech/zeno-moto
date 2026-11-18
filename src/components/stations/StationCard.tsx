@@ -10,7 +10,7 @@ export function StationCard({ station }: { station: StationSummary }) {
       <Card className="h-full p-4 transition-shadow hover:shadow-md">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold">{station.name}</p>
+            <p className="truncate text-sm font-bold">{station.name}</p>
             <p className="text-xs text-muted-foreground">
               {station.city} &middot; {station.region}
             </p>
@@ -30,17 +30,17 @@ export function StationCard({ station }: { station: StationSummary }) {
         </div>
 
         <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
-          <div className="rounded-lg bg-surface-muted py-2">
+          <div className="rounded-xl bg-surface-muted py-2">
             <p className="font-mono text-sm font-semibold tabular-nums">
               {station.slotsOnline}/{station.slotsTotal}
             </p>
             <p className="text-muted-foreground">Slots up</p>
           </div>
-          <div className="rounded-lg bg-surface-muted py-2">
+          <div className="rounded-xl bg-surface-muted py-2">
             <p className="font-mono text-sm font-semibold tabular-nums">{station.swapsToday}</p>
             <p className="text-muted-foreground">Swaps today</p>
           </div>
-          <div className="rounded-lg bg-surface-muted py-2">
+          <div className="rounded-xl bg-surface-muted py-2">
             <p className="font-mono text-sm font-semibold tabular-nums">{station.uptimePct}%</p>
             <p className="text-muted-foreground">Uptime</p>
           </div>
